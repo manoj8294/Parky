@@ -41,7 +41,7 @@ namespace ParkyAPI.Controllers
         [HttpPost("register")]
         public IActionResult Register([FromBody] AuthenticationModel model)
         {
-            _logger.Debug("Enter Register");
+            _logger.Debug("Enter Register.");
             bool isUniqueUser = _userRepository.IsUniqueUser(model.Username);
             if(!isUniqueUser)
             {
@@ -52,7 +52,7 @@ namespace ParkyAPI.Controllers
             {
                 return StatusCode(500, new { Message = "Error while registering the user" });
             }
-            _logger.Debug("Exit Register");
+            _logger.Debug("Exit Register.");
             return Ok(user);
         }
     }
